@@ -12,13 +12,12 @@ csv = csv.writer(file,delimiter = ",")
 #id, name, weight
 csv.writerow(["dex number", "name", "weight"])
 
-#write each dex number/id in the first column
 #Use for-loop to run through every Gen 4 pokemon and return the data
 gen4 = range(387,494)
 for id in gen4:
     
-    #get the name for each dex number/id
     #Set up URL for API
+    #get the name and weight for each dex number/id
     endpoint = "http://pokeapi.co/api/v2/"
     num = "pokemon/"+str(id)+"/"
     url = endpoint+num
@@ -35,7 +34,7 @@ for id in gen4:
     #find the weight for each pokemon and set it to a variable
     weight = dex["weight"]
     
-    #write a row containing the dex number/id, name, and weight
+    #write a row containing the dex number/id, name, and weight in that order
     csv.writerow([id, name, weight])
 
 #close file
